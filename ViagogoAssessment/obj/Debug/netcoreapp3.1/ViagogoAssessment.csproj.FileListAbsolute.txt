@@ -1,0 +1,14 @@
+C:\Users\ionyejekwe\source\repos\ViagogoAssessment\ViagogoAssessment\bin\Debug\netcoreapp3.1\ViagogoAssessment.exe
+C:\Users\ionyejekwe\source\repos\ViagogoAssessment\ViagogoAssessment\bin\Debug\netcoreapp3.1\ViagogoAssessment.deps.json
+C:\Users\ionyejekwe\source\repos\ViagogoAssessment\ViagogoAssessment\bin\Debug\netcoreapp3.1\ViagogoAssessment.runtimeconfig.json
+C:\Users\ionyejekwe\source\repos\ViagogoAssessment\ViagogoAssessment\bin\Debug\netcoreapp3.1\ViagogoAssessment.runtimeconfig.dev.json
+C:\Users\ionyejekwe\source\repos\ViagogoAssessment\ViagogoAssessment\bin\Debug\netcoreapp3.1\ViagogoAssessment.dll
+C:\Users\ionyejekwe\source\repos\ViagogoAssessment\ViagogoAssessment\bin\Debug\netcoreapp3.1\ViagogoAssessment.pdb
+C:\Users\ionyejekwe\source\repos\ViagogoAssessment\ViagogoAssessment\obj\Debug\netcoreapp3.1\ViagogoAssessment.csprojAssemblyReference.cache
+C:\Users\ionyejekwe\source\repos\ViagogoAssessment\ViagogoAssessment\obj\Debug\netcoreapp3.1\ViagogoAssessment.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\ionyejekwe\source\repos\ViagogoAssessment\ViagogoAssessment\obj\Debug\netcoreapp3.1\ViagogoAssessment.AssemblyInfoInputs.cache
+C:\Users\ionyejekwe\source\repos\ViagogoAssessment\ViagogoAssessment\obj\Debug\netcoreapp3.1\ViagogoAssessment.AssemblyInfo.cs
+C:\Users\ionyejekwe\source\repos\ViagogoAssessment\ViagogoAssessment\obj\Debug\netcoreapp3.1\ViagogoAssessment.csproj.CoreCompileInputs.cache
+C:\Users\ionyejekwe\source\repos\ViagogoAssessment\ViagogoAssessment\obj\Debug\netcoreapp3.1\ViagogoAssessment.dll
+C:\Users\ionyejekwe\source\repos\ViagogoAssessment\ViagogoAssessment\obj\Debug\netcoreapp3.1\ViagogoAssessment.pdb
+C:\Users\ionyejekwe\source\repos\ViagogoAssessment\ViagogoAssessment\obj\Debug\netcoreapp3.1\ViagogoAssessment.genruntimeconfig.cache

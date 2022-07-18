@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "dgSpecHash": "SPtBN7uJH5fUmX5T6A3zjgXjjpxToYnBTJkLtWEasM/pNMw6n71ft6vWqilijCQ/9i73vicYZLmoSnvIvGoQGg==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\ionyejekwe\\source\\repos\\ViagogoAssessment\\ViagogoAssessment\\ViagogoAssessment.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\ionyejekwe\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\3.1.10\\microsoft.aspnetcore.app.ref.3.1.10.nupkg.sha512",
+    "C:\\Users\\ionyejekwe\\.nuget\\packages\\microsoft.netcore.app.host.win-x64\\3.1.18\\microsoft.netcore.app.host.win-x64.3.1.18.nupkg.sha512"
+  ],
+  "logs": []
+}

@@ -22,7 +22,8 @@ namespace ViagogoAssessment
     {
         public Customer Customer { get; set; }
         public Event Event { get; set; }
-        public int Distance { get; set; }       
+        public int Distance { get; set; }
+        public int Price { get; set; }
     }
 
     public class Solution
@@ -44,12 +45,14 @@ namespace ViagogoAssessment
             // then add to email.
             var customer = new Customer { Name = "Mr. Fake", City = "Boston" };
 
-           
             // 1. TASK
-            foreach (var item in ClientCityEvents(customer, events))
-            {
-                AddToEmail(customer, item);
-            }
+            // Option 1
+           // ClientCityEvents(customer, events).ForEach(x => AddToEmail(customer, x));
+
+            // Option 2
+            (events.Where(x => x.City.Equals(customer.City, StringComparison.OrdinalIgnoreCase)).ToList()).ForEach(c => AddToEmail(customer, c));
+
+
             /*
             * We want you to send an email to this customer with all events in their city
             * Just call AddToEmail(customer, event) for each event you think they should get
@@ -58,10 +61,11 @@ namespace ViagogoAssessment
             SendEmailForClosestEvents(events, customer, 5);
         }
 
-        private static IEnumerable<Event> ClientCityEvents(Customer customer, IEnumerable<Event> events)
+        private static List<Event> ClientCityEvents(Customer customer, List<Event> events)
         {
-            return events.Where(x => x.City == customer.City);
+            return events.Where(x => x.City.Equals(customer.City, StringComparison.OrdinalIgnoreCase)).ToList();
         }
+
 
         // You do not need to know how these methods work
         static void AddToEmail(Customer c, Event e, int? price = null)
@@ -76,25 +80,52 @@ namespace ViagogoAssessment
             return (AlphabeticalDistance(e.City, "") + AlphabeticalDistance(e.Name, "")) / 10;
         }
 
-        private static void SendEmailForClosestEvents(IReadOnlyCollection<Event> events, Customer customer, int limit)  
-        {   
-            var closestForEmail = (from @event in events
-                    let distance = GetDistance(customer.City,
-                        @event.City)
-                    select new ClosestEvent
-                    {
-                        Customer = customer,
-                        Distance = distance,
-                        Event = @event
-                    }).Where(x => x.Event.City != customer.City)
-                      .ToList()
-                      .OrderBy(x => x.Distance)
-                      .Take(limit);
+        // Dictionary caching is recommended for this exercise,
+        // because indexing is fast due to it's unique keys
+        private static void SendEmailForClosestEvents(List<Event> events, Customer customer, int limit)
+        {
+            var store = new Dictionary<string, int>();
+            var closestEvents = new List<ClosestEvent>();
 
-            foreach (var customerEvent in closestForEmail)
+            events.ForEach(x =>
             {
-                AddToEmail(customer, customerEvent.Event);
-            }
+                var closestEvent = new ClosestEvent();  
+                var cacheKey = $"{customer.City}:{x.City}";
+                if (store.ContainsKey(cacheKey))
+                {
+                    closestEvent.Customer = customer;
+                    closestEvent.Event = x;
+                    closestEvent.Distance = store[cacheKey];
+                    closestEvent.Price = GetPrice(x);
+                    closestEvents.Add(closestEvent);
+                }
+                else
+                {
+                    //Adding a try/catch, to make sure we don't crash the program, if GetDistance fails
+                    try
+                    {
+                        var distance = GetDistance(customer.City, x.City);
+                        closestEvent.Customer = customer;
+                        closestEvent.Event = x;
+                        closestEvent.Distance = distance;
+                        closestEvent.Price = GetPrice(x);
+                        store.Add(cacheKey, distance);
+                        closestEvents.Add(closestEvent);
+                    }
+                    catch (Exception e)
+                    {
+                        // Interact with interviewer on what to return here if program crashes.
+                        Console.WriteLine(e);
+                    }
+                }
+                
+            });
+
+            // We can now sort by either distance or price
+            (closestEvents.OrderBy(x => x.Distance).Take(limit).ToList()).ForEach(x =>
+            {
+                AddToEmail(x.Customer, x.Event);
+            });
         }
         
       
